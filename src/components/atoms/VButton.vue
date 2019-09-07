@@ -2,6 +2,7 @@
   <button
     :class="['v-button',{disabled: isDisabled}]"
     :disabled="isDisabled"
+    @click.prevent="$emit('click')"
   >
     <slot>Играть</slot>
   </button>

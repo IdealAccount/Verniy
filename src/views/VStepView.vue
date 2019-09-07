@@ -1,23 +1,12 @@
 <template>
   <div class="v-step-view">
-    <v-modal-view>
-      <template #header>
-        <h3>Заполните данные</h3>
-      </template>
-        <v-modal-reg></v-modal-reg>
-      <template #footer>
-
-      </template>
-    </v-modal-view>
+    <v-modal></v-modal>
   </div>
 </template>
 <script>
-  import VModalView from '../components/templates/VModalView'
-  import VModalReg from '../components/organisms/VModalReg'
+  import VModal from '../components/templates/VModal'
   export default {
-    components: { VModalView, VModalReg },
-    methods: {
-    }
+    components: { VModal },
   }
 </script>
 <style lang="scss">
