@@ -1,26 +1,16 @@
 <template>
   <div :class="['v-rules-agree', type]">
-    <!--<div class="checkbox-wrapper">-->
       <input
         class="checkbox-input"
         :id="type"
         type="checkbox"
         hidden
       >
-      <!--<label class="checkbox-custom"-->
-             <!--:for="type"-->
-      <!--&gt;</label>-->
       <label class="checkbox-label" :for="type">
         <span>Я ознакомлен с <a href="#!">правилами</a></span>
         <br>
         <slot></slot>
       </label>
-    <!--</div>-->
-    <!--<label class="checkbox-label" :for="type">-->
-      <!--<span>Я ознакомлен с <a href="#!">правилами</a></span>-->
-      <!--<br>-->
-      <!--<slot></slot>-->
-    <!--</label>-->
   </div>
 </template>
 <script>
@@ -36,18 +26,9 @@
     margin: 0 auto;
     &.modal {
       margin-top: 27px;
-      /*.checkbox-input:checked ~ .checkbox-custom {*/
-        /*background: red;*/
-      /*}*/
       .checkbox-input:checked ~ .checkbox-label:before {
         background: red;
       }
-      /*.checkbox-custom {*/
-        /*width: 24px;*/
-        /*height: 24px;*/
-        /*border-color: #f37032;*/
-        /*border-radius: 4px;*/
-      /*}*/
       .checkbox-label {
         margin-left: 24px;
         font-size: 14px;
@@ -70,18 +51,9 @@
     }
     &.game {
       margin-top: 55px;
-      /*.checkbox-input:checked ~ .checkbox-custom {*/
-        /*background: orange;*/
-      /*}*/
       .checkbox-input:checked ~ .checkbox-label:before {
         background: orange;
       }
-      /*.checkbox-custom {*/
-        /*width: 50px;*/
-        /*height: 50px;*/
-        /*border-color: #eaaa00;*/
-        /*border-radius: 6px;*/
-      /*}*/
       .checkbox-label {
         margin-left: 28px;
         font-size: 26px;
@@ -104,14 +76,6 @@
   }
 
   .checkbox {
-    /*&-custom {*/
-      /*display: flex;*/
-      /*align-items: center;*/
-      /*justify-content: center;*/
-      /*background: #FFF3E9;*/
-      /*border: 2px solid;*/
-      /*cursor: pointer;*/
-    /*}*/
     &-label {
       display: block;
       cursor: pointer;

@@ -7,8 +7,8 @@
       <form class="form-reg">
         <v-modal-input class="modal-reg__input" place-holder="Имя">
           <v-icon :icon="'error'"></v-icon>
-        </v-modal-input>
-        <v-modal-input class="modal-reg__input" place-holder="Телефон"/>
+        </v-modal-input >
+        <v-modal-input class="modal-reg__input" type="tel"/>
       </form>
     </template>
     <template #description>

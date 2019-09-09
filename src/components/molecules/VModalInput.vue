@@ -1,10 +1,21 @@
 <template>
   <div class="v-input-wrapper">
     <slot></slot>
-    <input class="v-input"
+    <input v-if="type === 'text'"
+           class="v-input"
            :placeholder="placeHolder"
            maxlength="20"
     >
+    <div class="v-input-tel" v-else-if="type === 'tel'">
+      <span>
+        <img class="v-input-img" src="../../assets/img/phone.svg">
+      </span>
+      <input class="v-input"
+             type="tel"
+             placeholder="+7(  )"
+             pattern="+7([0-9]{3})-[0-9]{3}-[0-9]{4}"
+      >
+    </div>
     <span class="v-input-error" v-if="unValid">
       Обязательно для заполнения
     </span>
@@ -17,21 +28,25 @@
     props: {
       unValid: Boolean,
       placeHolder: String,
+      type: {
+        type: Boolean,
+        default: 'text',
+      }
     },
-    components: { VIcon }
+    components: {VIcon}
   }
 </script>
 <style lang="scss">
   .v-input-wrapper {
     position: relative;
     width: 100%;
+    border-bottom: 1px solid rgba(32, 32, 32, .8);
   }
 
   .v-input {
     width: 100%;
     background: none;
     border: none;
-    border-bottom: 1px solid rgba(32, 32, 32, .8);
     padding: 6px 8px 19px;
     color: #545454;
     font-size: 26px;
@@ -52,6 +67,31 @@
         background: none;
         border-radius: 0;
       }
+    }
+    &-tel {
+      display: flex;
+      .v-input {
+        padding-left: 30px;
+        &::placeholder {
+          font-size: 26px;
+          color: rgba(#000, .5);
+          letter-spacing: .22em;
+        }
+      }
+      span {
+        display: flex;
+        align-items: center;
+        vertical-align: middle;
+        padding-bottom: 19px;
+        padding-top: 6px;
+      }
+    }
+    &-img {
+      vertical-align: middle;
+      height: 100%;
+      padding: 0px 30px 0 10px;
+      border: 0 solid;
+      border-right-width: 1px;
     }
     &-error {
       position: absolute;
