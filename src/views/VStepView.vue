@@ -1,12 +1,14 @@
 <template>
   <div class="v-step-view">
-    <v-modal></v-modal>
+    <v-modal type="VModalReg"></v-modal>
+    <!--<v-first-page></v-first-page>-->
   </div>
 </template>
 <script>
   import VModal from '../components/templates/VModal'
+  import VFirstPage from '../components/organisms/VFirstPage'
   export default {
-    components: { VModal },
+    components: { VModal, VFirstPage },
   }
 </script>
 <style lang="scss">

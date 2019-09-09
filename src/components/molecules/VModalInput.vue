@@ -1,13 +1,11 @@
 <template>
   <div class="v-input-wrapper">
-    <v-icon :class="['v-input-icon', { error: noValid }]"
-            :icon="noValid ? 'error' : 'valid'"
-    />
+    <slot></slot>
     <input class="v-input"
            :placeholder="placeHolder"
            maxlength="20"
     >
-    <span class="v-input-error" v-if="noValid">
+    <span class="v-input-error" v-if="unValid">
       Обязательно для заполнения
     </span>
   </div>
@@ -17,19 +15,16 @@
 
   export default {
     props: {
-      noValid: Boolean,
+      unValid: Boolean,
       placeHolder: String,
-      icon: String
     },
-    components: {VIcon}
+    components: { VIcon }
   }
 </script>
 <style lang="scss">
   .v-input-wrapper {
     position: relative;
-    &:not(:last-child) {
-      margin-bottom: 57px;
-    }
+    width: 100%;
   }
 
   .v-input {

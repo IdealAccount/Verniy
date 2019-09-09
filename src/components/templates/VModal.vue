@@ -12,17 +12,17 @@
   </div>
 </template>
 <script>
-  import { mapState } from 'vuex'
+  // import { mapState } from 'vuex'
   export default {
     name: 'VModal',
+    props: ['type'],
     data() {
       return {
         modalContent: null,
-
       }
     },
     computed: {
-      ...mapState(['type']),
+      // ...mapState(['type']),
       loader() {
         if (this.type) {
           console.log(this.type)

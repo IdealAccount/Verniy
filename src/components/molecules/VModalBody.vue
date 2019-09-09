@@ -1,21 +1,22 @@
 <template>
-  <div class="modal-body">
-    <header class="modal-body__header">
+  <div class="v-modal-body">
+    <header class="v-modal-body__header">
       <slot name="header"></slot>
     </header>
     <slot name="content"></slot>
-    <p class="modal-body__description">
+    <p class="v-modal-body__description">
       <slot name="description"></slot>
     </p>
     <slot name="footer"></slot>
   </div>
 </template>
 <style lang="scss">
-  .modal-body {
+  .v-modal-body {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
+    width: 100%;
     &__header {
       text-align: center;
       font-size: 36px;

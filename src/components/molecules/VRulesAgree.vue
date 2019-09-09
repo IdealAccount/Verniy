@@ -1,21 +1,26 @@
 <template>
   <div :class="['v-rules-agree', type]">
-    <div class="checkbox-wrapper">
+    <!--<div class="checkbox-wrapper">-->
       <input
         class="checkbox-input"
         :id="type"
         type="checkbox"
         hidden
       >
-      <label class="checkbox-custom"
-        :for="type"
-      ></label>
-    </div>
-    <label class="checkbox-label" :for="type">
-      <span>Я ознакомлен с <a href="#!">правилами</a></span>
-      <br>
-      <slot></slot>
-    </label>
+      <!--<label class="checkbox-custom"-->
+             <!--:for="type"-->
+      <!--&gt;</label>-->
+      <label class="checkbox-label" :for="type">
+        <span>Я ознакомлен с <a href="#!">правилами</a></span>
+        <br>
+        <slot></slot>
+      </label>
+    <!--</div>-->
+    <!--<label class="checkbox-label" :for="type">-->
+      <!--<span>Я ознакомлен с <a href="#!">правилами</a></span>-->
+      <!--<br>-->
+      <!--<slot></slot>-->
+    <!--</label>-->
   </div>
 </template>
 <script>
@@ -25,26 +30,35 @@
 </script>
 <style lang="scss">
   .v-rules-agree {
+    position: relative;
     display: flex;
     align-items: center;
     margin: 0 auto;
     &.modal {
       margin-top: 27px;
-      .checkbox-input:checked ~ .checkbox-custom {
+      /*.checkbox-input:checked ~ .checkbox-custom {*/
+        /*background: red;*/
+      /*}*/
+      .checkbox-input:checked ~ .checkbox-label:before {
         background: red;
       }
-      .checkbox-custom {
-        width: 24px;
-        height: 24px;
-        border-color: #f37032;
-        border-radius: 4px;
-      }
+      /*.checkbox-custom {*/
+        /*width: 24px;*/
+        /*height: 24px;*/
+        /*border-color: #f37032;*/
+        /*border-radius: 4px;*/
+      /*}*/
       .checkbox-label {
-        margin-left: 15px;
+        margin-left: 24px;
         font-size: 14px;
         color: #7d7d7d;
-        span {
-          line-height: 16px;
+        line-height: 16px;
+        &:before {
+          width: 24px;
+          height: 24px;
+          border-color: #f37032;
+          border-radius: 4px;
+          box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.1);
         }
         a {
           color: #7d7d7d;
@@ -56,21 +70,28 @@
     }
     &.game {
       margin-top: 55px;
-      .checkbox-input:checked ~ .checkbox-custom {
+      /*.checkbox-input:checked ~ .checkbox-custom {*/
+        /*background: orange;*/
+      /*}*/
+      .checkbox-input:checked ~ .checkbox-label:before {
         background: orange;
       }
-      .checkbox-custom {
-        width: 50px;
-        height: 50px;
-        border-color: #eaaa00;
-        border-radius: 6px;
-      }
+      /*.checkbox-custom {*/
+        /*width: 50px;*/
+        /*height: 50px;*/
+        /*border-color: #eaaa00;*/
+        /*border-radius: 6px;*/
+      /*}*/
       .checkbox-label {
         margin-left: 28px;
         font-size: 26px;
         color: #fff3e9;
-        span {
-          line-height: 30px;
+        line-height: 30px;
+        &:before {
+          width: 50px;
+          height: 50px;
+          border-color: #eaaa00;
+          border-radius: 6px;
         }
         a {
           color: #fff3e9;
@@ -81,18 +102,33 @@
       }
     }
   }
+
   .checkbox {
-    &-custom {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #FFF3E9;
-      border: 2px solid;
-      cursor: pointer;
-    }
+    /*&-custom {*/
+      /*display: flex;*/
+      /*align-items: center;*/
+      /*justify-content: center;*/
+      /*background: #FFF3E9;*/
+      /*border: 2px solid;*/
+      /*cursor: pointer;*/
+    /*}*/
     &-label {
+      display: block;
       cursor: pointer;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-100%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #FFF3E9;
+        border: 2px solid;
+        cursor: pointer;
+      }
       a {
         position: relative;
         display: inline-block;

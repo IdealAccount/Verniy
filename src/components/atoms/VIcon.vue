@@ -1,14 +1,15 @@
 <template>
   <div class="v-icon">
-    <img :src="'../../assets/img/check.svg'">
+    <img :src="src">
   </div>
 </template>
 <script>
+  import img from '../../assets/img/error.svg'
   export default {
-    props: {
-      icon: {
-        type: String,
-        default: 'check'
+    props: ['icon'],
+    data() {
+      return {
+        src: '../../assets/img/error.png'
       }
     }
   }
