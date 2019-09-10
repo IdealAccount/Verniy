@@ -9,8 +9,8 @@
   </div>
 </template>
 <script>
-  import VModalBody from '../molecules/VModalBody'
-  import VScroller from '../molecules/VScroller'
+  import VModalBody from './VModalBody'
+  import VScroller from './VScroller'
   import VScrollBar from '../atoms/VScrollBar'
   export default {
     name: 'VModalRules',

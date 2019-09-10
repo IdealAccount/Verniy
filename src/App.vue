@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <v-view></v-view>
   </div>
 </template>
 <script>
-  import VStepView from './views/VStepView'
+  import VView from './views/VView'
   export default {
-    components: { VStepView }
+    components: { VView }
   }
 </script>
 

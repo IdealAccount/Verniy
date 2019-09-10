@@ -14,11 +14,11 @@
 </script>
 <style lang="scss">
   .v-button {
-    width: 280px;
-    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 280px;
+    height: 70px;
     background: #ffb600;
     border-radius: 12px 0 12px 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, .3);

@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import VStepView from './views/VStepView'
+import VStepView from './views/VView'
 
 Vue.use(Router);
 
@@ -14,9 +14,19 @@ export default new Router({
       component: VStepView
     },
     {
-      path: "/about",
-      name: "about",
-      // component: () => import("./views/About.vue")
+      path: "/registration",
+      name: "registration",
+      component: () => import("./components/organisms/VModalReg.vue")
+    },
+    {
+      path: "/code",
+      name: "code",
+      component: () => import("./components/organisms/VModalCode.vue")
+    },
+    {
+      path: "/qrcode",
+      name: "code",
+      component: () => import("./components/organisms/VModalQr.vue")
     }
   ]
 });

@@ -50,7 +50,6 @@
     height: 550px;
     margin-bottom: 42px;
   }
-
   .roulette {
     position: absolute;
     right: 0;

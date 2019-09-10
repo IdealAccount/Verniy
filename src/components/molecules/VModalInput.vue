@@ -13,7 +13,6 @@
       <input class="v-input"
              type="tel"
              placeholder="+7(  )"
-             pattern="+7([0-9]{3})-[0-9]{3}-[0-9]{4}"
       >
     </div>
     <span class="v-input-error" v-if="unValid">
@@ -25,11 +24,67 @@
   import VIcon from '../atoms/VIcon'
 
   export default {
+  //   directives('mask', {
+  //   bind: function(el, binding) {
+  //     let opts = {
+  //       inputElement: el,
+  //       placeholderChar: ' ',
+  //       showMask: false,
+  //       guide: false,
+  //     };
+  //     if (typeof binding.value === 'object') {
+  //       opts = {
+  //         inputElement: el,
+  //         ...binding.value,
+  //       };
+  //     } else if (binding.value) {
+  //       switch (binding.value) {
+  //         case 'tel-ru':
+  //           opts.mask = ['+', '7', ' ', '(', /[3489]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/];
+  //           opts.initPlaceholder = '+7 (   )';
+  //           /*
+  //           opts.pipe = (conformedValue, config) => {
+  //             return conformedValue;
+  //           };
+  //           */
+  //           el.addEventListener('paste', e => {
+  //             let pastedData = e.clipboardData.getData('text/plain');
+  //           });
+  //           break;
+  //
+  //         default:
+  //           throw new Error('Unknown mask: ', binding.value);
+  //       }
+  //     } else {
+  //       return false;
+  //     }
+  //
+  //     el._textMask = TextMask(opts);
+  //     if (opts.initPlaceholder && !el.placeholder) {
+  //       const placeholder = opts.initPlaceholder;//el._textMask.textMaskInputElement.state.previousPlaceholder;
+  //       el.placeholder = placeholder;
+  //       setTimeout(() => {
+  //         if (!el.placeholder) {
+  //           el.placeholder = placeholder;
+  //         }
+  //       }, 50);
+  //
+  //       el.addEventListener('blur', e => {
+  //         el.placeholder = placeholder;
+  //       });
+  //       el.addEventListener('input', debounce(e => {
+  //         if (!el.value) {
+  //           el.placeholder = placeholder;
+  //         }
+  //       }, 50));
+  //     }
+  //   },
+  // }),
     props: {
       unValid: Boolean,
       placeHolder: String,
       type: {
-        type: Boolean,
+        type: String,
         default: 'text',
       }
     },
