@@ -7,7 +7,7 @@
         hidden
       >
       <label class="checkbox-label" :for="type">
-        <span>Я ознакомлен с <a href="#!">правилами</a></span>
+        <span>Я ознакомлен с <a class="link" href="#!">правилами</a></span>
         <br>
         <slot></slot>
       </label>
@@ -41,7 +41,7 @@
           border-radius: 4px;
           box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.1);
         }
-        a {
+        .link {
           color: #7d7d7d;
           &:before {
             background: #7d7d7d;
@@ -65,7 +65,7 @@
           border-color: #eaaa00;
           border-radius: 6px;
         }
-        a {
+        .link {
           color: #fff3e9;
           &:before {
             background: #fff3e9;
@@ -93,18 +93,18 @@
         border: 2px solid;
         cursor: pointer;
       }
-      a {
-        position: relative;
-        display: inline-block;
-        &:before {
-          position: absolute;
-          content: '';
-          display: block;
-          bottom: -2px;
-          height: 2px;
-          width: 100%;
-        }
-      }
+    }
+  }
+  .link {
+    position: relative;
+    display: inline-block;
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      bottom: -2px;
+      height: 2px;
+      width: 100%;
     }
   }
 </style>

@@ -12,13 +12,13 @@
       Запросить код подтверждения повторно через {{timer}}
     </template>
     <template #footer>
-      <v-button @click="changeType('VModalQr')">Готово!</v-button>
+      <v-button @click="$router.push('game')">Готово!</v-button>
     </template>
   </v-modal-body>
 </template>
 <script>
   import {mapActions} from 'vuex'
-  import VModalBody from '../molecules/VModalBody'
+  import VModalBody from '../molecules/modal/VModalBody'
   import VButton from '../atoms/VButton'
   import VInputCode from '../atoms/VInputCode'
 

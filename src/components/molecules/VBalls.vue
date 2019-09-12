@@ -13,25 +13,26 @@
 <style lang="scss">
   .v-balls {
     position: absolute;
-    height: 926px;
-    width: 620px;
+    right: 0;
+    height: 100vh;
+    width: 662px;
   }
-
   .ball {
     position: absolute;
     z-index: 10;
     &-top {
       left: 0;
-      top: -50px;
+      top: 0;
       .ball-thread {
-        transform: translate(-11%, 50%);
+        transform: translate(-14%, 58%);
       }
     }
     &-bottom {
-      bottom: 50px;
+      bottom: 0;
       right: 0;
+      transform: translate(-22%, -27%);
       .ball-thread {
-        transform: translate(-100%, 50%)
+        transform: translate(-105%, 50%)
       }
     }
     &-thread {

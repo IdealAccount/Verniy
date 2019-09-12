@@ -1,27 +1,20 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import router from './router'
+
+Vue.use(router);
 
 Vue.use(Vuex);
+let vm = this;
 
 export default new Vuex.Store({
   state: {
-    type: null,
-  },
-  getters: {
-    TYPE(state) {
-      return state.type
-    }
   },
   mutations: {
-    CHANGE_TYPE(state, type) {
-      state.type = type;
-      console.log(state.type)
-    }
+
   },
   actions: {
-    changeType({commit}, type) {
-      commit('CHANGE_TYPE', type)
-    }
+
   }
 
 });

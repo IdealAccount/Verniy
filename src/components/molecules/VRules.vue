@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-  import VModalBody from './VModalBody'
+  import VModalBody from './modal/VModalBody'
   import VScroller from './VScroller'
   import VScrollBar from '../atoms/VScrollBar'
   export default {

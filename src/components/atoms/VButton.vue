@@ -17,10 +17,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 280px;
+    max-width: 280px;
+    width: 100%;
     height: 70px;
     background: #ffb600;
-    border-radius: 12px 0 12px 0;
+    border-radius: 12px 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, .3);
 
     color: #fff;

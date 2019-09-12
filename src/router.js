@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
-import VStepView from './views/VView'
+// import VStepView from './views/VView'
+import VModalReg from './components/organisms/VModalReg'
+import VFirstPage from './components/organisms/VFirstPage'
+import Screen6 from './components/organisms/Screen6'
 
 Vue.use(Router);
 
@@ -10,8 +13,8 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "v-step-view",
-      component: VStepView
+      name: "home",
+      component: Screen6
     },
     {
       path: "/registration",
@@ -25,8 +28,18 @@ export default new Router({
     },
     {
       path: "/qrcode",
-      name: "code",
+      name: "qrcode",
       component: () => import("./components/organisms/VModalQr.vue")
+    },
+    {
+      path: "/game",
+      name: "game",
+      component: () => import("./components/organisms/VGame.vue")
+    },
+    {
+      path: "/screen6",
+      name: "screen6",
+      component: () => import("./components/organisms/Screen6.vue")
     }
   ]
 });

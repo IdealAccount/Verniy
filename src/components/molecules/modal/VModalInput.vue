@@ -8,7 +8,7 @@
     >
     <div class="v-input-tel" v-else-if="type === 'tel'">
       <span>
-        <img class="v-input-img" src="../../assets/img/phone.svg">
+        <img class="v-input-img" src="../../../assets/img/phone.svg">
       </span>
       <input class="v-input"
              type="tel"
@@ -21,7 +21,7 @@
   </div>
 </template>
 <script>
-  import VIcon from '../atoms/VIcon'
+  import VIcon from '../../atoms/VIcon'
 
   export default {
   //   directives('mask', {

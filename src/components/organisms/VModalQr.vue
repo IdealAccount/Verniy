@@ -22,8 +22,8 @@
   </v-modal-body>
 </template>
 <script>
-  import VModalBody from '../molecules/VModalBody'
-  import VModalInput from '../molecules/VModalInput'
+  import VModalBody from '../molecules/modal/VModalBody'
+  import VModalInput from '../molecules/modal/VModalInput'
   import VButton from '../atoms/VButton'
 
   export default {

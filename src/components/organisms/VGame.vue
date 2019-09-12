@@ -1,19 +1,19 @@
 <template>
   <div class="v-game-view">
     <v-roulette></v-roulette>
-    <div class="container">
-      <span class="logo-mini">
-        <img src="../../assets/img/logo-mini.png">
-      </span>
-      <v-button>Крутить колесо!</v-button>
+    <!--<div class="container">-->
+      <!--<span class="logo-mini">-->
+        <!--<img src="../../assets/img/logo-mini.png">-->
+      <!--</span>-->
+      <!--<v-button>Крутить колесо!</v-button>-->
 
-    </div>
-    <v-balls class="v-game_balls"></v-balls>
+    <!--</div>-->
+    <!--<v-balls class="v-game_balls"></v-balls>-->
   </div>
 </template>
 <script>
-  import VRoulette from '../atoms/VRoulette'
-  import VBalls from '../atoms/VBalls'
+  import VRoulette from '../molecules/game/VRoulette'
+  import VBalls from '../molecules/VBalls'
   import VButton from '../atoms/VButton'
   export default {
     components: { VRoulette, VBalls, VButton }
@@ -31,14 +31,8 @@
     }
     .container {
       width: 100%;
-      padding-left: 600px;
     }
-    .v-button {
-      width: 710px;
-      height: 138px;
-      font-size: 64px;
 
-    }
     .v-balls {
       right: 0;
     }

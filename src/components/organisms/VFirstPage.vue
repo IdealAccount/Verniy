@@ -5,7 +5,7 @@
         <img src="../../assets/img/logo.png">
       </div>
       <div class="">
-        <v-button @click="animate = !animate">Играть</v-button>
+        <v-button @click="$router.push('registration')">Играть</v-button>
         <v-button>Мои призы</v-button>
         <v-rules-agree type="game">и подтверждаю, что мне 18 лет</v-rules-agree>
       </div>
@@ -13,6 +13,7 @@
   </div>
 </template>
 <script>
+  import { mapActions } from 'vuex'
   import VButtonAgree from '../molecules/VButtonAgree'
   import VButton from '../atoms/VButton'
   import VRulesAgree from '../molecules/VRulesAgree'
@@ -24,6 +25,9 @@
       return {
         animate: false
       }
+    },
+    methods: {
+      ...mapActions(['routerPush'])
     }
   }
 </script>
