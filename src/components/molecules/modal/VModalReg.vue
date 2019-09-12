@@ -19,12 +19,11 @@
   </v-modal>
 </template>
 <script>
-  import VModal from '../molecules/modal/VModal'
-  import VModalInput from '../molecules/modal/VModalInput'
-  import ButtonAgree from '../molecules/VButtonAgree'
-  import VRulesAgree from '../molecules/VRulesAgree'
-  import VButton from '../atoms/VButton'
-
+  import VModal from './VModal'
+  import VModalInput from './VModalInput'
+  import ButtonAgree from '../VButtonAgree'
+  import VRulesAgree from '../VRulesAgree'
+  import VButton from '../../atoms/VButton'
 
   export default {
     name: 'VModalReg',

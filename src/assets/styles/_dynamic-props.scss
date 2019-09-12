@@ -1,0 +1,3 @@
+@function calc-w($amount) {
+  @return ($amount / 1920) * 100vmax
+}

@@ -4,9 +4,6 @@
   </div>
 </template>
 <script>
-  import VModal from '../components/molecules/modal/VModal'
-  import VFirstPage from '../components/organisms/VFirstPage'
-  import VGame from '../components/organisms/VGame'
   export default {
   }
 </script>
@@ -14,7 +11,7 @@
   .v-view {
     position: relative;
     min-height: 100vh;
-/*    background: #F37032 url('../assets/img/bg-decor.png') center / contain;*/
+    background: #F37032 url('../assets/img/bg-decor.png') center / contain;
     overflow: hidden;
   }
 </style>

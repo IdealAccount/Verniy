@@ -88,7 +88,7 @@
         default: 'text',
       }
     },
-    components: {VIcon}
+    components: { VIcon }
   }
 </script>
 <style lang="scss">

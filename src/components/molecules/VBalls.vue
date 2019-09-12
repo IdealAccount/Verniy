@@ -1,20 +1,23 @@
 <template>
   <div class="v-balls">
     <div class="ball ball-top">
-      <img src="../../assets/img/ball-star.png">
-      <img class="ball-thread" src="../../assets/img/ball-star-thread.png">
+      <img src="../../assets/img/ball-top.png">
+      <!--<img class="ball-thread" src="../../assets/img/ball-star-thread.png">-->
     </div>
     <div class="ball ball-bottom">
-      <img src="../../assets/img/ball.png">
-      <img class="ball-thread" src="../../assets/img/ball-thread.png">
+      <img src="../../assets/img/ball-bottom.png">
+      <!--<img class="ball-thread" src="../../assets/img/ball-thread.png">-->
     </div>
   </div>
 </template>
 <style lang="scss">
+  @function calc-w($amount) {
+    @return ($amount / 1920) * 100vmax
+  }
   .v-balls {
     position: absolute;
     right: 0;
-    height: 100vh;
+    height: calc-w(1080);
     width: 662px;
   }
   .ball {

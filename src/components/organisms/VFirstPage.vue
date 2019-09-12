@@ -1,5 +1,8 @@
 <template>
-  <div class="v-first-page">
+  <div class="v-screen-1">
+    <div class="logo-label">
+      <img src="../../assets/img/logo-label.png" alt="">
+    </div>
     <div class="page-container">
       <div class="logo">
         <img src="../../assets/img/logo.png">
@@ -10,17 +13,19 @@
         <v-rules-agree type="game">и подтверждаю, что мне 18 лет</v-rules-agree>
       </div>
     </div>
+    <v-roulette></v-roulette>
   </div>
 </template>
 <script>
   import { mapActions } from 'vuex'
+  import VRoulette from '../molecules/game/VRoulette'
   import VButtonAgree from '../molecules/VButtonAgree'
   import VButton from '../atoms/VButton'
   import VRulesAgree from '../molecules/VRulesAgree'
 
   export default {
     name: 'FirstPage',
-    components: {VButtonAgree, VButton, VRulesAgree},
+    components: {VButtonAgree, VButton, VRulesAgree, VRoulette},
     data() {
       return {
         animate: false
@@ -32,16 +37,30 @@
   }
 </script>
 <style lang="scss">
-  .v-first-page {
-    position: relative;
-    padding: 128px 0 64px;
-    overflow: hidden;
+  @function calc-w($amount) {
+    @return ($amount / 1920) * 100vmax
   }
-
+  .v-screen-1 {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    .v-roulette {
+      right: calc-w(-601.5);
+    }
+  }
+  .logo-label {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%)
+  }
   .page-container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     z-index: 10;
-    max-width: 1100px;
     width: 100%;
     margin: 0 auto;
     &.is-animate {

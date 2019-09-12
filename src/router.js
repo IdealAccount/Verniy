@@ -1,9 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
-// import VStepView from './views/VView'
-import VModalReg from './components/organisms/VModalReg'
+import Screen6 from './components/organisms/VScreenGame'
 import VFirstPage from './components/organisms/VFirstPage'
-import Screen6 from './components/organisms/Screen6'
 
 Vue.use(Router);
 
@@ -14,32 +12,37 @@ export default new Router({
     {
       path: "/",
       name: "home",
-      component: Screen6
+      component: VFirstPage
+    },
+    {
+      path: "/start",
+      name: "start",
+      component: () => import("./components/organisms/VFirstPage.vue")
     },
     {
       path: "/registration",
       name: "registration",
-      component: () => import("./components/organisms/VModalReg.vue")
+      component: () => import("./components/molecules/modal/VModalReg.vue")
     },
     {
       path: "/code",
       name: "code",
-      component: () => import("./components/organisms/VModalCode.vue")
+      component: () => import("./components/molecules/modal/VModalCode.vue")
     },
     {
       path: "/qrcode",
       name: "qrcode",
-      component: () => import("./components/organisms/VModalQr.vue")
+      component: () => import("./components/organisms/VScreenQrCode.vue")
     },
     {
       path: "/game",
       name: "game",
-      component: () => import("./components/organisms/VGame.vue")
+      component: () => import("./components/organisms/VScreenGame.vue")
     },
     {
-      path: "/screen6",
-      name: "screen6",
-      component: () => import("./components/organisms/Screen6.vue")
+      path: "/screen5",
+      name: "screen5",
+      component: () => import("./components/organisms/VScreen5.vue")
     }
   ]
 });
