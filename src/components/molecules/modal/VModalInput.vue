@@ -5,6 +5,7 @@
            class="v-input"
            :placeholder="placeHolder"
            maxlength="20"
+           v-focus
     >
     <div class="v-input-tel" v-else-if="type === 'tel'">
       <span>
@@ -15,9 +16,9 @@
              placeholder="+7(  )"
       >
     </div>
-    <span class="v-input-error" v-if="unValid">
-      Обязательно для заполнения
-    </span>
+    <!--<span class="v-input-error" v-if="unValid">-->
+      <!--Обязательно для заполнения-->
+    <!--</span>-->
   </div>
 </template>
 <script>
@@ -83,6 +84,7 @@
     props: {
       unValid: Boolean,
       placeHolder: String,
+      autofocus: Boolean,
       type: {
         type: String,
         default: 'text',

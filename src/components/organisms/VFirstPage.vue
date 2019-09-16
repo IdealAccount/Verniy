@@ -3,13 +3,17 @@
     <div class="logo-label">
       <img src="../../assets/img/logo-label.png" alt="">
     </div>
-    <div class="page-container">
+    <div class="container">
       <div class="logo">
         <img src="../../assets/img/logo.png">
       </div>
-      <div class="">
-        <v-button @click="$router.push('registration')">Играть</v-button>
-        <v-button>Мои призы</v-button>
+      <div class="controls">
+        <div class="btn-wrap">
+          <v-button @click="$router.push('registration')">Играть</v-button>
+        </div>
+        <div class="btn-wrap">
+          <v-button>Мои призы</v-button>
+        </div>
         <v-rules-agree type="game">и подтверждаю, что мне 18 лет</v-rules-agree>
       </div>
     </div>
@@ -47,6 +51,31 @@
     .v-roulette {
       right: calc-w(-601.5);
     }
+    .container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      width: 100%;
+      height: 100vh;
+      margin: 0 auto;
+      &.is-animate {
+
+      }
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      width: 70%;
+    }
+    .btn-wrap {
+      width: 50%;
+    }
+    .v-button {
+      width: 90%;
+    }
   }
   .logo-label {
     position: absolute;
@@ -54,26 +83,14 @@
     left: 50%;
     transform: translateX(-50%)
   }
-  .page-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    width: 100%;
-    margin: 0 auto;
-    &.is-animate {
 
-    }
-  }
 
   .logo {
     width: 1100px;
     height: 550px;
     margin-bottom: 42px;
   }
-  .roulette {
+  /*.roulette {
     position: absolute;
     right: 0;
     top: 50%;
@@ -81,7 +98,7 @@
     &.is-animate {
       animation: rotate-left 4s ease-in-out forwards;
     }
-  }
+  }*/
 
   @keyframes rotate-left {
     50% {
@@ -96,6 +113,5 @@
     100% {
       transform: translate(-120vh, -50%) rotate(-360deg);
     }
-
   }
 </style>

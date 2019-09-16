@@ -30,9 +30,13 @@ export default new Router({
       component: () => import("./components/molecules/modal/VModalCode.vue")
     },
     {
+      path: '/scan/:id',
+      component: () => import("./components/organisms/VScreenScan.vue")
+    },
+    {
       path: "/qrcode",
       name: "qrcode",
-      component: () => import("./components/organisms/VScreenQrCode.vue")
+      component: () => import("./components/organisms/VScreenScan.vue")
     },
     {
       path: "/game",
@@ -43,6 +47,11 @@ export default new Router({
       path: "/screen5",
       name: "screen5",
       component: () => import("./components/organisms/VScreen5.vue")
+    },
+    {
+      path: "/rules",
+      name: "rules",
+      component: () => import("./components/molecules/modal/VModalRules.vue")
     }
   ]
 });

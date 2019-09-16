@@ -6,6 +6,8 @@
       class="v-input-code"
       type="text"
       maxlength="1"
+      v-model="codeNum"
+      v-focus
     >
   </div>
 </template>
@@ -14,6 +16,11 @@
     props: {
       isValid: Boolean,
       noValid: Boolean
+    },
+    data() {
+      return {
+        codeNum: ''
+      }
     }
   }
 </script>

@@ -34,6 +34,9 @@ export default {
 };
 </script>
 <style lang="scss">
+  @function calc-w($amount) {
+    @return ($amount / 1920) * 100vmax
+  }
 .v-modal {
   position: absolute;
   top: 50%;
@@ -58,6 +61,11 @@ export default {
     color: red;
     cursor: pointer;
   }
+  h3 {
+    font-size: 36px;
+    text-align: center;
+    color: #545454;
+  }
   &__body {
     margin: 0 auto;
     display: flex;
@@ -78,10 +86,10 @@ export default {
     }
   }
   &-footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     margin-top: auto;
-    .v-button {
-      margin: 0 auto;
-    }
   }
 }
 

@@ -11,7 +11,7 @@
         <img src="../../assets/img/sound_on.svg" v-if="soundOn">
         <img src="../../assets/img/sound_off.svg" v-if="!soundOn">
       </div>
-      <div class="v-control__window">
+      <div class="v-control__window" @click="openFullscreen">
         <img src="../../assets/img/window.svg">
       </div>
     </div>
@@ -24,45 +24,29 @@
   import VBalls from '../molecules/VBalls'
 
   export default {
-    components: {VRoulette, VBalls},
+    props: {
+      rotate: Object,
+      animate: Boolean
+    },
+    components: { VRoulette, VBalls },
     data() {
       return {
         soundOn: true,
-        animate: false,
-        delay: 0,
-        disabled: false,
-        rotate: {},
-        type: 'scan'
-      }
-    },
-    computed: {
-      deg() {
-        let deg = 360 / 1000 * this.delay;
-        let val = val >= 44 && val <= 47;
-        console.log(val)
-        if (deg % 45 === 0) deg += 5;
-        return Math.floor(deg);
       }
     },
     methods: {
-      rotateRoulette() {
-        // if (this.animate) return;
-
-        this.delay = Math.round(Math.random() * (3000 - 2000) + 2000);
-        this.disabled = true;
-        this.animate = true;
-        this.rotate = {
-          transition: `transform ${this.delay}ms`,
-          transform: `translateY(-50%) rotate(${this.deg}deg)`,
-        };
-
-        // setTimeout(() => {
-        //   this.animate = true
-        //   this.disabled = true
-        // }, this.delay)
+      openFullscreen() {
+        // if (elem.requestFullscreen) {
+        //   elem.requestFullscreen();
+        // } else if (elem.mozRequestFullScreen) { /* Firefox */
+        //   elem.mozRequestFullScreen();
+        // } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        //   elem.webkitRequestFullscreen();
+        // } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        //   elem.msRequestFullscreen();
+        // }
       }
     }
-
   }
 </script>
 <style lang="scss">
@@ -99,6 +83,9 @@
       right: 5px;
       max-width: calc-w(287);
     }
+    .v-roulette {
+      left: calc-w(-601.5);
+    }
   }
   .roulette-wrapper {
     position: relative;
@@ -106,10 +93,7 @@
     width: 100%;
     flex-shrink: 0;
   }
-  .v-roulette {
-    left: calc-w(-601.5);
 
-  }
   .roulette-pointer {
     position: absolute;
     right: calc-w(29);

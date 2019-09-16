@@ -1,25 +1,11 @@
 <template>
   <div class="v-scroller-wrapper">
-    <div class="v-scroller" ref="scroller">
+    <div class="v-scroller">
       <slot></slot>
-    </div>
-    <div class="v-scrollbar">
-      <span class="v-scrollbar__slider"></span>
     </div>
   </div>
 </template>
 <script>
-  export default {
-    props: ['height'],
-    data() {
-      return {
-
-      }
-    },
-    mounted() {
-      console.log(this.height)
-    },
-  }
 </script>
 <style lang="scss">
   .v-scroller-wrapper {
@@ -27,13 +13,24 @@
     overflow: hidden;
   }
   .v-scroller {
-    width: calc(100% + 16px);
-    overflow-y: scroll;
+    /*width: calc(100% + 16px);*/
+    overflow-y: auto;
+
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    &-track {
+      width: 12px;
+      background: #E7E7E7;
+      border-radius: 5px;
+    }
+    &-thumb {
+      border-radius: 5px;
+      width: 12px;
+      background: #FF711A;
+    }
   }
   .v-scrollbar {
-    position: absolute;
-    top: 0;
-    right: 20px;
     display: flex;
     justify-content: center;
     padding: 5px 0;

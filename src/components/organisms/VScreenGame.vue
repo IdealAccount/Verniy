@@ -1,5 +1,5 @@
 <template>
-  <v-screen-5 class="v-screen-game">
+  <v-screen-5 class="v-screen-game" :rotate="rotate" :animate="animate">
     <div class="content">
       <div class="logo-mini">
         <img src="../../assets/img/logo-mini.png" alt="">
@@ -12,7 +12,7 @@
       <div class="container down-load" v-if="type === 'download'">
         <v-button>Загрузить фото чека</v-button>
         <v-button>Сделать фотографию</v-button>
-        <v-button @click="$router.push('qrcode')">Ввести данные чека вручную</v-button>
+        <v-button @click="$router.push({path: '/scan/qrcode'})">Ввести данные чека вручную</v-button>
       </div>
     </div>
   </v-screen-5>
@@ -34,7 +34,6 @@
     },
     data() {
       return {
-        soundOn: true,
         animate: false,
         delay: 0,
         disabled: false,
@@ -51,21 +50,16 @@
     },
     methods: {
       rotateRoulette() {
-        // if (this.animate) return;
+        if (this.animate) return;
 
-        this.delay = Math.round(Math.random() * (3000 - 2000) + 2000);
+        this.delay = Math.floor(2000 + (Math.random() * (3001 - 2000)));
         this.disabled = true;
         this.animate = true;
         this.rotate = {
           transition: `transform ${this.delay}ms`,
           transform: `translateY(-50%) rotate(${this.deg}deg)`,
         };
-
-        // setTimeout(() => {
-        //   this.animate = true
-        //   this.disabled = true
-        // }, this.delay)
-      }
+      },
     }
   }
 </script>
@@ -73,12 +67,11 @@
   @function calc-w($amount) {
     @return ($amount / 1920) * 100vmax
   }
+
   .v-screen-game {
     .container {
       width: calc-w(710);
-      padding-top: 194px;
-      height: 100%;
-      margin: 0 auto;
+      margin: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -157,17 +150,6 @@
     max-width: calc-w(601.5);
     width: 100%;
     flex-shrink: 0;
-  }
-
-  .v-roulette {
-    transform: translateY(-50%);
-    left: calc-w(-601.5);
-    top: 50%;
-    width: calc-w(1203);
-    transition: .3s;
-    img {
-      width: 100%;
-    }
   }
 
   .roulette-pointer {

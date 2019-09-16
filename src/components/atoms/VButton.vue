@@ -13,12 +13,15 @@
   }
 </script>
 <style lang="scss">
+  @function calc-w($amount) {
+    @return ($amount / 1920) * 100vmax
+  }
   .v-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 280px;
-    width: 100%;
+    min-width: 280px;
+    width: calc-w(310);
     height: 70px;
     margin: 0 auto;
     background: #ffb600;
@@ -26,7 +29,7 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, .3);
 
     color: #fff;
-    font-size: 30px;
+    font-size: calc-w(30);
     font-weight: bold;
 
     transition: .2s ease-in;

@@ -10,7 +10,7 @@
       ></v-modal-input>
     </div>
     <p>Обработка чека может занять до 3 часов</p>
-    <div class="modal-qr__footer">
+    <div class="v-modal-footer">
       <v-button class="modal-qr__button">Отправить чек</v-button>
     </div>
   </v-modal>

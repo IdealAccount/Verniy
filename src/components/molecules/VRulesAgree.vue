@@ -7,7 +7,7 @@
         hidden
       >
       <label class="checkbox-label" :for="type">
-        <span>Я ознакомлен с <a class="link" href="#!">правилами</a></span>
+        <span>Я ознакомлен с <a class="link" href="#!" @click.prevent="$router.push('rules')">правилами</a></span>
         <br>
         <slot></slot>
       </label>
