@@ -1,117 +1,216 @@
 <template>
   <div class="v-screen-1">
     <div class="logo-label">
-      <img src="../../assets/img/logo-label.png" alt="">
+      <img src="../../assets/img/logo-label.png" alt="" />
     </div>
-    <div class="container">
-      <div class="logo">
-        <img src="../../assets/img/logo.png">
-      </div>
-      <div class="controls">
-        <div class="btn-wrap">
-          <v-button @click="$router.push('registration')">Играть</v-button>
+    <transition name="fade-left">
+      <div class="container" v-if="visible">
+        <div class="logo">
+          <img src="../../assets/img/logo.png" />
         </div>
-        <div class="btn-wrap">
-          <v-button>Мои призы</v-button>
+        <div class="controls">
+          <div class="row">
+            <div class="btn-wrap">
+              <v-button @click="btnPlay" :class="{ disabled: !rules.checked }"
+                >Играть</v-button
+              >
+            </div>
+            <div class="btn-wrap">
+              <v-button>Мои призы</v-button>
+            </div>
+          </div>
+          <v-rules-agree
+            type="game"
+            @change="rules.checked = !rules.checked"
+            :class="rules.class"
+            >и подтверждаю, что мне 18 лет</v-rules-agree
+          >
         </div>
-        <v-rules-agree type="game">и подтверждаю, что мне 18 лет</v-rules-agree>
       </div>
-    </div>
-    <v-roulette></v-roulette>
+    </transition>
+    <transition name="fade-right">
+      <v-roulette v-if="visible"></v-roulette>
+    </transition>
   </div>
 </template>
 <script>
-  import { mapActions } from 'vuex'
-  import VRoulette from '../molecules/game/VRoulette'
-  import VButtonAgree from '../molecules/VButtonAgree'
-  import VButton from '../atoms/VButton'
-  import VRulesAgree from '../molecules/VRulesAgree'
+import { mapActions } from "vuex";
+import VRoulette from "../molecules/game/VRoulette";
+import VButton from "../atoms/VButton";
+import VRulesAgree from "../molecules/VRulesAgree";
 
-  export default {
-    name: 'FirstPage',
-    components: {VButtonAgree, VButton, VRulesAgree, VRoulette},
-    data() {
-      return {
-        animate: false
+export default {
+  name: "FirstPage",
+  components: { VButton, VRulesAgree, VRoulette },
+  data() {
+    return {
+      visible: true,
+      rules: {
+        checked: false,
+        class: null
       }
-    },
-    methods: {
-      ...mapActions(['routerPush'])
+    };
+  },
+  methods: {
+    ...mapActions(["routerPush"]),
+    btnPlay(e) {
+      if (!this.rules.checked) {
+        this.rules.class = "animate-shake";
+        setTimeout(() => {
+          this.rules.class = null;
+        }, 800);
+        return;
+      }
+      this.visible = false;
+      setTimeout(() => this.$router.push("registration"), 1800);
     }
   }
+};
 </script>
 <style lang="scss">
-  @function calc-w($amount) {
-    @return ($amount / 1920) * 100vmax
+@function calc-w($amount) {
+  @return ($amount / 1920) * 100vmax;
+}
+.v-screen-1 {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  .v-roulette {
+    right: calc-w(-601.5);
   }
-  .v-screen-1 {
+  .container {
     position: relative;
-    overflow: hidden;
-    height: 100vh;
-    .v-roulette {
-      right: calc-w(-601.5);
-    }
-    .container {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    padding-top: calc-w(230);
+    width: 60vw;
+    margin: 0 auto;
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    .row {
       width: 100%;
-      height: 100vh;
-      margin: 0 auto;
-      &.is-animate {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+  .btn-wrap {
+    width: 41%;
+  }
+  .v-button {
+    width: 90%;
+  }
+  .v-rules-agree {
+    margin-top: calc-w(55);
+  }
+}
+.logo-label {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-      }
+.logo {
+  margin-bottom: calc-w(50);
+}
+.fade-left-enter-active,
+.fade-left-leave-active,
+.fade-right-enter-active,
+.fade-right-leave-active {
+  transition: all 1.6s ease-in-out;
+}
+.fade-left-enter,
+.fade-left-leave-to {
+  opacity: 0;
+  transform: translateX(-200%);
+}
+.fade-right-enter,
+.fade-right-leave-to {
+  opacity: 0;
+  transform: translate(50%, -50%) rotate(45deg);
+}
+@media (max-width: 768px) {
+  .v-screen-1 {
+    align-items: flex-start;
+    .container {
+      max-width: 660px;
+      width: 100%;
+      padding-top: calc-w(550);
     }
     .controls {
-      display: flex;
-      flex-wrap: wrap;
-      width: 70%;
+      .row {
+        flex-direction: column;
+        align-items: center;
+      }
     }
     .btn-wrap {
-      width: 50%;
+      max-width: 280px;
+      width: 100%;
+      &:first-of-type {
+        margin-bottom: 50px;
+      }
     }
     .v-button {
-      width: 90%;
+      width: 100%;
+      height: 70px;
+      font-size: 30px;
+      padding: 0;
+    }
+    .v-rules-agree {
+      margin-top: 63px;
+      .checkbox-label {
+        font-size: 26px;
+        line-height: 30px;
+        &:before {
+          width: 50px;
+          height: 50px;
+        }
+      }
     }
   }
-  .logo-label {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%)
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .v-screen-1 {
+    .container {
+      padding-top: 165px;
+      padding: 165px 20px 20px 20px;
+    }
+    .logo {
+      margin-bottom: 50px;
+    }
+    .controls {
+      width: 100%;
+    }
+    .btn-wrap {
+      width: 100%;
+      &:first-of-type {
+        margin-bottom: 30px;
+      }
+    }
+    .v-button {
+      width: 260px;
+      height: 50px;
+      font-size: 20px;
+    }
+    .v-rules-agree {
+      margin-top: 27px;
+      .checkbox-label {
+        font-size: 12px;
+        line-height: 14px;
+        &:before {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
   }
-
-
-  .logo {
-    width: 1100px;
-    height: 550px;
-    margin-bottom: 42px;
-  }
-  /*.roulette {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translate(50%, -50%);
-    &.is-animate {
-      animation: rotate-left 4s ease-in-out forwards;
-    }
-  }*/
-
-  @keyframes rotate-left {
-    50% {
-      transform: translate(-140vh, -50%) rotate(-390deg);
-    }
-    70% {
-      transform: translate(-110vh, -50%) rotate(-350deg);
-    }
-    90% {
-      transform: translate(-130vh, -50%) rotate(-370deg);
-    }
-    100% {
-      transform: translate(-120vh, -50%) rotate(-360deg);
-    }
-  }
+}
 </style>

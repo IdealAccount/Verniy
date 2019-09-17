@@ -2,12 +2,7 @@
   <v-modal class="modal-photo">
     <h3>Загрузить фотографию</h3>
     <div class="modal-photo__content">
-      <picture-input
-        ref="pictureInput"
-        width="462"
-        height="15265+"
-      >
-
+      <picture-input ref="pictureInput" width="462" height="152">
       </picture-input>
     </div>
     <p>Обработка чека может занять до 3 часов</p>
@@ -17,10 +12,10 @@
   </v-modal>
 </template>
 <script>
-  import VModal from './VModal'
-  import PictureInput from 'vue-picture-input'
+import VModal from "./VModal";
+import PictureInput from "vue-picture-input";
 
-  export default {
-    components: { VModal, PictureInput },
-  }
+export default {
+  components: { VModal, PictureInput }
+};
 </script>

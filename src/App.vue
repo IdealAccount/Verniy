@@ -4,15 +4,16 @@
   </div>
 </template>
 <script>
-  import VView from './views/VView'
-  export default {
-    components: { VView }
-  }
+import VView from "./components/views/VView";
+export default {
+  components: { VView }
+};
 </script>
 
 <style lang="scss">
-  @import "./assets/styles/main";
-  body {
-    font-size: 16px;
-  }
+@import "./assets/styles/main";
+
+body {
+  font-size: 16px;
+}
 </style>

@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Screen6 from './components/organisms/VScreenGame'
 import VFirstPage from './components/organisms/VFirstPage'
 
 Vue.use(Router);

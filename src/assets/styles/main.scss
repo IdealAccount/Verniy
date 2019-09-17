@@ -1,3 +1,27 @@
 @import "normalize";
 @import "var";
 @import "dynamic-props";
+
+@function calc-w($amount) {
+  @return ($amount / 1920) * 100vmax
+}
+
+$layout-width-desktop: 1920;
+$layout-height-desktop: 1080;
+$layout-width-mobile: 360;
+$layout-height-mobile: 640;
+
+$dw: 100vw / $layout-width-desktop;
+$dh: 100vh / $layout-height-desktop;
+$mw: 100vw / $layout-width-mobile;
+$mh: 100vh / $layout-height-mobile;
+
+$dynamic-breakpoint: md;
+
+:root {
+  --dw: calc(100vw / #{$layout-width-desktop});
+  --dh: calc(100vh / #{$layout-height-desktop});
+  --mw: calc(100vw / #{$layout-width-mobile});
+  --mh: calc(100vh / #{$layout-height-mobile});
+  --realVh: 100vh;
+}

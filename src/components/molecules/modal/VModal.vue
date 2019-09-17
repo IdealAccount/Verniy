@@ -1,6 +1,6 @@
 <template>
   <div class="v-modal">
-    <span class="v-modal-close" @click="">
+    <span class="v-modal-close" @click="$router.go(-1)">
       <svg
         width="43"
         height="44"
@@ -19,7 +19,7 @@
       </svg>
     </span>
     <div class="v-modal__body">
-      <slot :routerPush="routerPush"></slot>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -34,9 +34,9 @@ export default {
 };
 </script>
 <style lang="scss">
-  @function calc-w($amount) {
-    @return ($amount / 1920) * 100vmax
-  }
+@function calc-w($amount) {
+  @return ($amount / 1920) * 100vmax;
+}
 .v-modal {
   position: absolute;
   top: 50%;
@@ -47,8 +47,10 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 899px;
-  min-height: 650px;
+  max-width: 899px;
+  width: 100%;
+  /*min-width: 899px;*/
+  /*min-height: 650px;*/
   padding-top: 57px;
   padding-bottom: 62px;
   background: rgba(#fff, 0.85);
@@ -62,32 +64,21 @@ export default {
     cursor: pointer;
   }
   h3 {
-    font-size: 36px;
+    font-size: calc-w(36);
     text-align: center;
     color: #545454;
   }
   &__body {
+    max-width: 522px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    &__header {
-      text-align: center;
-      font-size: 36px;
-      font-weight: bold;
-      color: #505050;
-    }
-    &__description {
-      max-width: 80%;
-      margin: 0 auto;
-      text-align: center;
-      font-size: 16px;
-      color: #7d7d7d;
-    }
   }
   &-footer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     margin-top: auto;
   }
@@ -101,5 +92,56 @@ export default {
 .modal-fade-enter,
 .modal-fade-leave-to {
   opacity: 0;
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+  .v-modal {
+    min-width: 0;
+    min-height: 0;
+    max-width: 660px !important;
+    width: 100%;
+    h3 {
+      font-size: 36px;
+    }
+    &.modal-reg {
+      .v-modal__body {
+        max-width: 460px;
+      }
+      p {
+        width: 80%;
+        font-size: 16px;
+        color: #7d7d7d;
+      }
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .v-modal {
+    padding: calc-w(40);
+    max-width: 87.5vw;
+    transform: translateX(-50%);
+    top: 80px;
+    h3 {
+      font-size: 16px;
+    }
+    .v-input {
+      font-size: 16px;
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+    .v-modal__body {
+      max-width: 400px;
+    }
+    /*.v-button {*/
+    /*width: 140px;*/
+    /*height: 40px;*/
+    /*font-size: 16px;*/
+    /*padding: 0;*/
+    /*}*/
+  }
 }
 </style>

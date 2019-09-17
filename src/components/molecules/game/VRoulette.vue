@@ -1,29 +1,27 @@
 <template>
-  <transition :name="`slide-${direction}`">
-    <div class="v-roulette">
-      <img src="../../../assets/img/roulette1.svg" v-if="1">
-    </div>
-  </transition>
+  <div class="v-roulette">
+    <img src="../../../assets/img/roulette1.svg" v-if="1" />
+  </div>
 </template>
 <script>
-  export default {
-    props: ['direction'],
-  }
+export default {
+  props: ["direction"]
+};
 </script>
 <style lang="scss">
-  @function calc-w($amount) {
-    @return ($amount / 1920) * 100vmax
+@function calc-w($amount) {
+  @return ($amount / 1920) * 100vmax;
+}
+.v-roulette {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc-w(1203);
+  transition: 0.3s;
+  img {
+    width: 100%;
   }
-  .v-roulette {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: calc-w(1203);
-    transition: .3s;
-    img {
-      width: 100%;
-    }
-    /*&-pointer {
+  /*&-pointer {
       width: 100%;
       height: 100%;
       background: linear-gradient(45deg, #993C0B 14.53%, #FFE368 74.66%, #F8C448 85.31%);;
@@ -61,5 +59,18 @@
         height: 138px;
       }
     }*/
+}
+@media (max-width: 768px) {
+  .v-roulette {
+    width: 110vw;
+    top: 0;
+    left: 50% !important;
+    transform: translate(-50%, -72%);
   }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .v-roulette {
+    top: 55px;
+  }
+}
 </style>
