@@ -76,11 +76,6 @@ export default {
   .v-modal__body {
     /*max-width: calc-w(522);*/
   }
-  p {
-    width: 70%;
-    text-align: center;
-    font-size: calc-w(16);
-  }
   &__footer {
     margin-top: calc-w(66);
   }
@@ -90,7 +85,7 @@ export default {
   margin-top: calc-w(166);
   margin-bottom: 45px;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 460px) {
   .v-modal.modal-reg p {
     width: 89%;
     font-size: 10px;

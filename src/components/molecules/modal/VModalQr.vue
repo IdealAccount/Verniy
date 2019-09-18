@@ -1,13 +1,7 @@
 <template>
   <v-modal class="modal-qr">
     <h3>Введите данные чека</h3>
-    <div class="modal-qr__content">
-      <!--<v-modal-input-->
-        <!--class="modal-qr__input"-->
-        <!--v-for="(n, i) in 4"-->
-        <!--:placeholder="placeholder[i]"-->
-        <!--:key="n"-->
-      <!--&gt;</v-modal-input>-->
+    <div class="row">
       <div class="v-input-wrapper modal-qr__input">
         <the-mask mask="##.##.## ##:##" class="v-input" placeholder="Дата"></the-mask>
       </div>
@@ -30,7 +24,7 @@
 <script>
 import VModal from "./VModal";
 import VButton from "../../atoms/VButton";
-import {TheMask} from "vue-the-mask"
+import { TheMask } from "vue-the-mask"
 
 export default {
   name: "VModalQr",
@@ -48,11 +42,11 @@ export default {
 </script>
 <style lang="scss">
 .modal-qr {
-  width: 100%;
   h3 {
     margin-bottom: 40px;
   }
-  &__content {
+  .row {
+    width: 100%;
     margin-top: 21px;
     margin-bottom: 45px;
   }

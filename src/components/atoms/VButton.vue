@@ -20,7 +20,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  /*padding: .8em 3.1em;*/
   max-width: 280px;
   width: 100%;
   height: 70px;

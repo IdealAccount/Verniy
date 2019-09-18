@@ -165,7 +165,7 @@ export default {
       padding: 0;
     }
     .v-rules-agree {
-      margin-top: 63px;
+      margin-top: calc-w(63);
       .checkbox-label {
         font-size: 26px;
         line-height: 30px;
@@ -177,10 +177,9 @@ export default {
     }
   }
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 320px) {
   .v-screen-1 {
     .container {
-      padding-top: 165px;
       padding: 165px 20px 20px 20px;
     }
     .logo {
@@ -213,4 +212,6 @@ export default {
     }
   }
 }
+
+
 </style>

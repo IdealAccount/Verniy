@@ -67,33 +67,7 @@ export default {
     padding-top: calc-w(64);
     flex-shrink: 1;
   }
-  .v-button {
-    width: calc-w(710);
-    max-width: 800px;
-    height: calc-w(138);
-    font-size: calc-w(64);
-    border-radius: calc-w(20) 0;
-    padding: 0;
-    &:not(:last-child) {
-      margin-bottom: calc-w(48);
-    }
-  }
-  .v-balls {
-    max-width: calc-w(662);
-    top: 50%;
-    transform: translateY(-50%);
-    max-height: 1080px;
-  }
-  .ball-top {
-    left: 0;
-    top: 19px;
-    max-width: calc-w(346);
-  }
-  .ball-bottom {
-    bottom: -327px;
-    right: 5px;
-    max-width: calc-w(287);
-  }
+
   .v-roulette {
     left: calc-w(-601.5);
   }
@@ -104,7 +78,6 @@ export default {
   width: 100%;
   flex-shrink: 0;
 }
-
 .roulette-pointer {
   position: absolute;
   right: calc-w(29);
@@ -134,27 +107,13 @@ export default {
     }
   }
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px){
   .screen-5 {
     .roulette-wrapper {
       position: absolute;
       max-width: 100%;
       left: 0;
       top: 0;
-    }
-    .content {
-      align-items: center;
-      padding-top: calc-w(500);
-    }
-    .logo-mini {
-      transform: rotate(-15deg);
-      margin-bottom: 30px;
-    }
-    .v-button {
-      width: 260px;
-      &:not(:last-child) {
-        margin-bottom: 28px;
-      }
     }
     .roulette-pointer {
       display: none;
@@ -165,6 +124,57 @@ export default {
     .v-balls {
       display: none;
     }
+    .content {
+      align-items: center;
+      padding-top: calc-w(500);
+    }
+    .logo-mini {
+      transform: rotate(-15deg);
+      margin-bottom: 30px;
+    }
   }
+}
+@media (max-width: 768px) {
+  .screen-5 {
+    .v-button {
+      max-width: 61.6vw;
+      height: 3em;
+      width: 100%;
+      font-size: 4vw;
+      margin-bottom: 8vw;
+    }
+  }
+}
+@media (min-width: 769px) {
+  .screen-5 {
+    .v-balls {
+      max-width: calc-w(662);
+      top: 50%;
+      transform: translateY(-50%);
+      max-height: 1080px;
+    }
+    .ball-top {
+      left: 0;
+      top: 19px;
+      max-width: calc-w(346);
+    }
+    .ball-bottom {
+      bottom: -327px;
+      right: 5px;
+      max-width: calc-w(287);
+    }
+    .v-button {
+      width: calc-w(710);
+      max-width: 800px;
+      height: calc-w(138);
+      font-size: calc-w(45);
+      border-radius: calc-w(20) 0;
+      padding: 0;
+      &:not(:last-child) {
+        margin-bottom: calc-w(48);
+      }
+    }
+  }
+
 }
 </style>

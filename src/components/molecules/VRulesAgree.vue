@@ -54,8 +54,7 @@ export default {
   &.modal {
     margin-top: 27px;
     .checkbox-input:checked ~ .checkbox-label:before {
-      background: url("../../assets/img/checked-modal.svg") no-repeat center / 60%,
-        #fff3e9;
+      background: url("../../assets/img/checked-modal.svg") no-repeat center / 60%, #fff3e9;
     }
     .checkbox-label {
       margin-left: 24px;

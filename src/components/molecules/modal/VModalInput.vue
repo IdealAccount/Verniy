@@ -51,7 +51,6 @@ export default {
   width: 100%;
   border-bottom: 1px solid rgba(32, 32, 32, 0.8);
 }
-
 .v-input {
   width: 100%;
   background: none;
@@ -109,7 +108,7 @@ export default {
     color: #ff1f1f;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .v-input {
     font-size: 24px;
     &::placeholder {
@@ -117,7 +116,7 @@ export default {
     }
   }
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 320px) {
   .v-input {
     padding-bottom: 7px;
     font-size: 16px;

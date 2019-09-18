@@ -51,8 +51,7 @@ export default {
   width: 100%;
   /*min-width: 899px;*/
   /*min-height: 650px;*/
-  padding-top: 57px;
-  padding-bottom: 62px;
+  padding: 60px;
   background: rgba(#fff, 0.85);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -70,10 +69,16 @@ export default {
   }
   &__body {
     max-width: 522px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  p {
+    width: 70%;
+    text-align: center;
+    font-size: calc-w(16);
   }
   &-footer {
     display: flex;
@@ -93,32 +98,7 @@ export default {
 .modal-fade-leave-to {
   opacity: 0;
 }
-@media (min-width: 768px) and (max-width: 1200px) {
-  .v-modal {
-    min-width: 0;
-    min-height: 0;
-    max-width: 660px !important;
-    width: 100%;
-    h3 {
-      font-size: 36px;
-    }
-    &.modal-reg {
-      .v-modal__body {
-        max-width: 460px;
-      }
-      p {
-        width: 80%;
-        font-size: 16px;
-        color: #7d7d7d;
-      }
-    }
-
-    p {
-      font-size: 16px;
-    }
-  }
-}
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   .v-modal {
     padding: calc-w(40);
     max-width: 87.5vw;
@@ -133,15 +113,23 @@ export default {
         font-size: 16px;
       }
     }
-    .v-modal__body {
-      max-width: 400px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1440px) {
+  .v-modal {
+    min-width: 0;
+    min-height: 0;
+    max-width: 660px;
+    width: 100%;
+    h3 {
+      font-size: 36px;
     }
-    /*.v-button {*/
-    /*width: 140px;*/
-    /*height: 40px;*/
-    /*font-size: 16px;*/
-    /*padding: 0;*/
-    /*}*/
+    .v-button {
+      width: 280px;
+      height: 70px;
+      font-size: 30px;
+    }
   }
 }
 </style>

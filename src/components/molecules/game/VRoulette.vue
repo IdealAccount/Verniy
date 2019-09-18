@@ -60,17 +60,15 @@ export default {
       }
     }*/
 }
-@media (max-width: 768px) {
+@media (min-width: 768px) {
+
+}
+@media (min-width: 320px) and (max-width: 768px) {
   .v-roulette {
     width: 110vw;
-    top: 0;
+    top: 55px;
     left: 50% !important;
     transform: translate(-50%, -72%);
-  }
-}
-@media (min-width: 320px) and (max-width: 767px) {
-  .v-roulette {
-    top: 55px;
   }
 }
 </style>

@@ -83,11 +83,6 @@ export default {
     align-items: center;
     /*justify-content: center;*/
     /*padding-bottom: calc-w(150);*/
-    &.down-load {
-      .v-button {
-        font-size: calc-w(45);
-      }
-    }
   }
   .link {
     font-size: calc-w(50);
@@ -100,72 +95,23 @@ export default {
       background: #fff;
     }
   }
-  .v-balls {
-    max-width: calc-w(662);
-    top: 50%;
-    transform: translateY(-50%);
-    max-height: 1080px;
-  }
-  .ball-top {
-    left: 0;
-    top: 19px;
-    max-width: calc-w(346);
-  }
-  .ball-bottom {
-    bottom: -327px;
-    right: 5px;
-    max-width: calc-w(287);
-  }
 }
 
-.logo-mini {
-  /*margin-bottom: calc-w(200);*/
-}
 
-.v-control {
-  position: absolute;
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  height: 70px;
-  right: 60px;
-  top: 21px;
-  div {
-    cursor: pointer;
-  }
-  &__sound {
-    margin-right: 25px;
-    img {
-      display: block;
+  @media (min-width: 320px) and (max-width: 768px) {
+    .v-screen-game {
+      .container {
+        align-items: center;
+        width: 100%;
+        margin: 0;
+      }
     }
   }
-}
-
-.roulette-wrapper {
-  position: relative;
-  max-width: calc-w(601.5);
-  width: 100%;
-  flex-shrink: 0;
-}
-
-.roulette-pointer {
-  position: absolute;
-  right: calc-w(29);
-  top: 50%;
-  max-width: calc-w(138);
-  width: 100%;
-  transform: translate(100%, -50%) rotate(-90deg);
-  img {
-    width: 100%;
-  }
-}
-@media (max-width: 768px) {
-  .v-screen-game {
-    .container {
-      align-items: center;
-      width: 100%;
-      margin: 0;
+  @media (max-width: 460px) {
+    .v-screen-game {
+      .link {
+        font-size: 16px;
+      }
     }
   }
-}
 </style>

@@ -21,9 +21,9 @@
       </div>
     </form>
     <p>Запросить код подтверждения повторно через {{ timer }}</p>
-      <v-button @click="$router.push('game')" :is-disabled="disabled"
-        >Готово!</v-button
-      >
+    <v-button @click="$router.push('game')" :is-disabled="disabled"
+      >Готово!</v-button
+    >
   </v-modal>
 </template>
 <script>
@@ -93,11 +93,13 @@ export default {
 };
 </script>
 <style lang="scss">
-  @function calc-w($amount) {
-    @return ($amount / 1920) * 100vmax;
-  }
+@function calc-w($amount) {
+  @return ($amount / 1920) * 100vmax;
+}
 .modal-code {
   width: 100%;
+  max-height: 650px;
+  height: 100%;
   .v-button {
     margin-top: 142px;
   }
@@ -140,7 +142,7 @@ export default {
   border: none;
   text-align: center;
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .modal-code {
     .form-code {
       margin-top: 106px;
@@ -150,13 +152,27 @@ export default {
     }
   }
 }
-  @media (min-width: 320px) and (max-width: 767px) {
-    .v-input-code-wrap {
-      width: calc-w(95);
-      height: calc-w(84);
+@media (max-width: 540px) {
+  .modal-code {
+    height: auto;
+    max-height: 100%;
+    p {
+      font-size: 14px;
+      width: 80%;
     }
-    .v-input-code {
-      font-size: calc-w(60);
+    .v-button {
+      margin-top: 15px;
     }
   }
+  .form-code {
+    margin-top: 38px;
+  }
+  .v-input-code-wrap {
+    width: calc-w(95);
+    height: calc-w(84);
+  }
+  .v-input-code {
+    font-size: calc-w(60);
+  }
+}
 </style>
