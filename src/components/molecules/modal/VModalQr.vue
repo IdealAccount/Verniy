@@ -53,11 +53,33 @@ export default {
   &__input:not(:last-child) {
     margin-bottom: 31px;
   }
-  &__button {
+  .v-button {
     margin-top: 40px;
+    width: 280px;
+    height: 70px;
+    font-size: 30px;
   }
 }
-  @media (min-width: 320px) and (max-width: 767px) {
-
+  @media (max-width: 320px) {
+    .modal-qr {
+      top: 20px;
+      padding-top: 30px;
+      h3 {
+        margin-bottom: 30px;
+      }
+      .input-wrapper {
+        width: 40px;
+      }
+      p {
+        font-size: 13px;
+        color: #777;
+      }
+      .v-button {
+        max-width: 100%;
+        width: 260px;
+        height: 50px;
+        font-size: 16px;
+      }
+    }
   }
 </style>

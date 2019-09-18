@@ -88,6 +88,7 @@ export default {
     font-size: calc-w(50);
     font-weight: bold;
     color: #fff;
+    cursor: pointer;
     &:not(:last-child) {
       margin-bottom: calc-w(50);
     }

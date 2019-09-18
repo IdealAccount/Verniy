@@ -102,10 +102,11 @@ export default {
     }
   }
   .btn-wrap {
-    width: 41%;
+    width: 50%;
   }
   .v-button {
     width: 90%;
+    min-width: 230px;
   }
   .v-rules-agree {
     margin-top: calc-w(55);
@@ -136,6 +137,42 @@ export default {
 .fade-right-leave-to {
   opacity: 0;
   transform: translate(50%, -50%) rotate(45deg);
+}
+
+@media (max-width: 320px) {
+  .v-screen-1 {
+    .container {
+      padding: 165px 20px 20px 20px;
+    }
+    .logo {
+      margin-bottom: 50px;
+    }
+    .controls {
+      width: 100%;
+    }
+    .btn-wrap {
+      width: 100%;
+      &:first-of-type {
+        margin-bottom: 30px;
+      }
+    }
+    .v-button {
+      width: 260px;
+      height: 50px;
+      font-size: 20px;
+    }
+    .v-rules-agree {
+      margin-top: 27px;
+      .checkbox-label {
+        font-size: 12px;
+        line-height: 14px;
+        &:before {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
 }
 @media (max-width: 768px) {
   .v-screen-1 {
@@ -177,41 +214,14 @@ export default {
     }
   }
 }
-@media (max-width: 320px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .v-screen-1 {
     .container {
-      padding: 165px 20px 20px 20px;
-    }
-    .logo {
-      margin-bottom: 50px;
+      width: 90vw;
     }
     .controls {
-      width: 100%;
-    }
-    .btn-wrap {
-      width: 100%;
-      &:first-of-type {
-        margin-bottom: 30px;
-      }
-    }
-    .v-button {
-      width: 260px;
-      height: 50px;
-      font-size: 20px;
-    }
-    .v-rules-agree {
-      margin-top: 27px;
-      .checkbox-label {
-        font-size: 12px;
-        line-height: 14px;
-        &:before {
-          width: 30px;
-          height: 30px;
-        }
-      }
+      width: 90%;
     }
   }
 }
-
-
 </style>
